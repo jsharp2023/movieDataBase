@@ -4,7 +4,7 @@ function checkJwtToken(req, res, next){
         if(req.headers && req.headers.authorization){
             const jwtToken = req.headers.authorization.replace("Bearer ", "")
             // const jwtToken = req.headers.authorization.slice(7)
-            const decodedJwt = jet.verify(jwtToken,process.env.PRIVATE_JWT_KEY )
+            const decodedJwt = get.verify(jwtToken,process.env.PRIVATE_JWT_KEY )
             res.locals.decodedToken = decodedJwt
             next()
            
